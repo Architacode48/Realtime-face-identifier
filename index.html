@@ -1,0 +1,38 @@
+<html>
+
+<head>
+  <title>Realtime Face Identification</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+  <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body background="data:image/jpeg;base64,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">
+        <center>
+          <h1 class="btn btn-primary heading">Realtime Face Identification
+        <hr>
+          <center>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 heading-div">
+              Model is trained on : <br>
+              <div class="btn btn-warning heading-div2"> Me | Brother | Sister | Mother</div>
+            </div>
+          </center>
+         </h1> 
+         <br><p class="btn btn-warning result">Family members: <span id="object_name"></span></p>
+          <p class="btn btn-warning result">Accuracy: <span id="object_accuracy"></span></p>
+         </center>
+    <div class="footer">Developed by: Archita Pandey</div>
+
+ <script src="main.js"></script>
+</body>
+</html>
